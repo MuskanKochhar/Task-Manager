@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager with Progress Tracker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="task-manager-card">
+        <header>
+          <h1>My Task Manager</h1>
+          <p>Add, manage, and track your daily tasks.</p>
+        </header>
+
+        <form id="task-form">
+          <input
+            type="text"
+            id="task-title-input"
+            placeholder="Task Title (e.g., Learn a new skill)"
+            autocomplete="off"
+            required
+          />
+          <textarea
+            id="task-description-input"
+            placeholder="Description..."
+          ></textarea>
+          <div class="form-row">
+            <input type="date" id="task-due-date-input" title="Due Date" />
+          </div>
+          <button type="submit" id="add-task-btn">
+            <i class="fa-solid fa-plus btn-icon"></i>
+            <span class="btn-text">Add Task</span>
+          </button>
+        </form>
+
+        <div id="progress-container">
+          <div class="progress-header">
+            <h2>Progress</h2>
+            <span id="progress-text">0%</span>
+          </div>
+          <div class="progress-bar-container">
+            <div id="progress-bar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div id="task-list"></div>
+
+        <div id="empty-state" class="hidden">
+          <i class="fa-solid fa-clipboard-list"></i>
+          <h3>No tasks yet!</h3>
+          <p>Add a task above to get started.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="edit-modal" class="hidden">
+      <div class="modal-content">
+        <h2>Edit Task</h2>
+        <input
+          type="text"
+          id="edit-title-input"
+          placeholder="Task Title"
+          required
+        />
+        <textarea
+          id="edit-description-input"
+          placeholder="Description"
+        ></textarea>
+        <input type="date" id="edit-due-date-input" title="Due Date" />
+        <div class="modal-actions">
+          <button id="cancel-edit">Cancel</button>
+          <button id="save-edit">Save Changes</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
